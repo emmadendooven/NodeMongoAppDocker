@@ -3,15 +3,10 @@ pipeline {
     agent any
 
     stages {
-      stage(‘Build’) {
+      stage(‘Deploy’) {
         steps {
-          
-          sh '''
-            echo "Dit wordt uitgevoerd in mijn jenkins container"
-            echo "Install"
-            echo " Test"
-            echo "deploy"
-            '''
+          sh 'sudo docker-compose build'
+          sh 'sudo docker-compose up -d'
         }
       }
     }
